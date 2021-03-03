@@ -4,7 +4,7 @@
  #define STEP 20 /* step size */
  /* print Fahrenheit-Celsius table */
  
- main() {
+ main() { 
 
 	int fahr;
 	
