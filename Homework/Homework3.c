@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h> /* Made by Rogelio Salinas */
 #include<ctype.h>
 //I did all of those defines just to not confuse myself when doing it
 #define NO 0
@@ -58,4 +58,4 @@ main () {
 		if ((all % 2) != NO && skip == YES)//prints everything exept puntuation
 			putchar (c);		
 	} 
-}
+} //Credits by colaboration with Antonio Cortes
