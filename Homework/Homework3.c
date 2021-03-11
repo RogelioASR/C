@@ -44,7 +44,7 @@ main () {
 		if ((all % 2) == NO) { //chages the digits to X
 			if (isdigit(c))
 				skip = NUMBER;
-			if (!isdigit(c) && numb == DONE)
+			if (!isdigit(c) && numb == DONE && !ispunct(c))
 				numb = YES;
 			
 			if (skip == YES)
