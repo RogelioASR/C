@@ -23,6 +23,7 @@ main() {
 			case 'n': if (scs && bcb > 0) { bcb--; scs--; } break;
 			case 'b': if (scs && bcb > 0) { bcb--; scs--; } break;
 			case 'r': if (scs && bcb > 0) { bcb--; scs--; } break;
+			case 'a': if (scs && bcb > 0) { bcb--; scs--; } break;
 			default : if (scs) scs--; 
 		}
 		
@@ -36,5 +37,5 @@ main() {
 	printf("%d Comments Left\n", coment);
 	printf("%d Asterisck double comments Left\n", asterisck);
 	printf("%d Scape secuencies Left\n", bcb);
-	
+
 }
