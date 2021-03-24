@@ -8,6 +8,7 @@ main() {
 	
 	enum months { JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC }; 
 	
-	printf("%i", MAR);
-	
+	printf("%i\n", NO);
+	printf("%i\n", MAR);
+	printf("%i\n", TAB);
 }
