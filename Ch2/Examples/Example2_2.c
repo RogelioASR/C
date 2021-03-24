@@ -16,7 +16,6 @@ main() {
 	
 	printf("%i\n%i", i, i2);
 		
-	
 }
 
  /* strlen: return length of s */
