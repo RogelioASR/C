@@ -19,6 +19,7 @@ void srand(unsigned int seed) {
 
 main() {
 	
+	srand(5);
 	printf ("%d\n", rand());
 	printf ("%d\n", rand());
 	printf ("%d\n", rand());
