@@ -19,7 +19,7 @@ void srand(unsigned int seed) {
 
 main() {
 	
-	srand(5);
+	srand(5); //change the number and the outcome numbers will change
 	printf ("%d\n", rand());
 	printf ("%d\n", rand());
 	printf ("%d\n", rand());
