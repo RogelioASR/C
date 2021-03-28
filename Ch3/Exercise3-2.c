@@ -44,23 +44,17 @@ void escape(char s[], char t[]) {
 void inverse(char s[], char t[]) { 
 
 	int i, j = 0, x = 0, l;
-	for (i = 0; s[i] != '\0'; i++) {
-		switch (s[i]) {
+	for (i = 0; t[i] != '\0'; i++) {
+		switch (t[i]) {
 			
 			case '\\': x = 1; break;
-			case 't': if(x == 1) { t[j++] = '\t'; x = 0; } else t[j++] = s[i]; break;
-			case 'n': if(x == 1) { t[j++] = '\n'; x = 0; } else t[j++] = s[i]; break;
-			default : if(x == 1) t[j++] = '\\'; t[j++] = s[i]; x = 0;  break;
+			case 't': if(x == 1) { s[j++] = '\t'; x = 0; } else s[j++] = t[i]; break;
+			case 'n': if(x == 1) { s[j++] = '\n'; x = 0; } else s[j++] = t[i]; break;
+			default : if(x == 1) s[j++] = '\\'; s[j++] = t[i]; x = 0;  break;
 		}
 	}
 	s[j++] = '\0';
-	
-	l = strlen(t);
-	j -= 1;
-	while (j < l)
-		t[j++] = '\0';
 		
-	printf("\ninverse: \n%s\n", t);
+	printf("\ninverse: \n%s", s);
 	
 }
-
