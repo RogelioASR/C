@@ -4,7 +4,9 @@
 
 double atof(char s[]);
 int getline(char s[], int lim);
+int atoi(char s[]);
 
+/* rudimentary calculator */
 main() {
 
 	double sum, atof(char []);
@@ -13,7 +15,7 @@ main() {
 
 	sum = 0;
 	while (getline(line, MAXLINE) > 0)
-		printf("\t%g\n", sum += atof(line));
+		printf("\t%g\n", sum += atof(line));//change atof for atoi to use the other function
 	
 	return 0;
 }
@@ -34,12 +36,13 @@ int getline(char s[], int lim) {
 	return i;
 }
 
+/* atof: convert string s to double */
 double atof(char s[]) { 
 
-	double val, power, exp, si = 1, pot;
+	double val, power;
 	int i, sign;
 	
-	for (i = 0; isspace(s[i]); i++);
+	for (i = 0; isspace(s[i]); i++); /* skip white space */
 	sign = (s[i] == '-') ? -1 : 1;
 	if (s[i] == '+' || s[i] == '-')
 		i++;
@@ -51,15 +54,15 @@ double atof(char s[]) {
 		val = 10.0 * val + (s[i] - '0');
 		power *= 10;
 	}
-	if (s[i] == 'e'|| s[i] == 'E')
-		i++;
-	si = (s[i] == '-') ? -1 : 1;
-	if (s[i] == '+' || s[i] == '-')
-		i++;
-	for (pot = 0; isdigit(s[i]); i++)
-		pot = 10 * pot + (s[i] - '0');
-	for (exp = 0; exp != pot; exp++)
-		val = (si == 1) ? val*10.0 : val/10.0;
 
 	return sign * val/ power;
 }
+
+/* atoi: convert string s to integer using atof */
+int atoi(char s[]) {
+	
+	double atof(char s[]); 
+
+	return (int) atof(s);
+
+} 
