@@ -8,20 +8,20 @@
 enum opts { NUM = '0', MTH, SIN, COS, TAN, EXP, SQR, POW, DUP, NONE, SWP, CLR, PNT };
 
 void 	push(double); 				//saves number
-double 	pop(void); 				//takes out the number
+double 	pop(void); 					//takes out the number
 int 	getop(char []); 			//get characters, numbers or operands
 int 	getcharf(void); 			//takes the imput
 void 	ungetch(int); 				//gets last unsaved charracter
-int 	options(int, char[]); 			//check for functions or commands
-int 	strinx(char s[], char t[]); 		//functions
+int 	options(int, char[]); 		//check for functions or commands
+int 	strinx(char s[], char t[]); //functions
 
-double 	val[MAX]; 				//stack
-int 	sp = 0; 				//val counter
-char 	buf[MAX]; 				//last characters
-int 	bufp = 0; 				//buf counter
-char 	var;					//variable
+double 	val[MAX]; 					//stack
+int 	sp = 0; 					//val counter
+char 	buf[MAX]; 					//last characters
+int 	bufp = 0; 					//buf counter
+char 	var;						//variable
 double 	variables[1000]; 			//assign 1 digit variables
-int 	op1, op3;				//indicators to variables
+int 	op1, op3;					//indicators to variables
 
 /* reverse Polish calculator */
 main() {
@@ -58,7 +58,6 @@ main() {
 			case PNT: op2 = pop(); printf("\t%g\n", op2); push(op2); break;
 			case SWP: op2 = pop(); op4 = pop(); push(op2); push(op4); break;
 			case '\n': printf("      =\t%.8g\n", pop()); op1 = 0; op3 = 0; var = 0; break;
-			
 			default: if(chars[0] != '=' && strlen(chars) > 1)
 						printf("error: unknown command %s\n", chars); break;
 		}
@@ -126,7 +125,7 @@ int getop(char chars[]) {
 	}
 	
 	if (isalpha(c))
-		return math(c, chars);
+		return options(c, chars);
 		
 	if (!isdigit(c) && c != '.')
 		return c; 
@@ -159,7 +158,7 @@ void ungetch(int c) {
 
 }
 
-int math(int c, char chars[]) {
+int options(int c, char chars[]) {
 	
 	int i = 0, o;
 	double op2, n = 0;
@@ -175,36 +174,36 @@ int math(int c, char chars[]) {
 		var = 0;
 	if(variables[var] != 0)
 		push(variables[var]);
-	if(strindex(chars, "ans")) {
+	if(strinx(chars, "ans")) {
 		push(variables['$']);
 		var = '$';
 	}
 	
-	if (strindex(chars, "sin"))
+	if (strinx(chars, "sin"))
 		return SIN;
-	if (strindex(chars, "cos"))
+	if (strinx(chars, "cos"))
 		return COS;
-	if (strindex(chars, "tan"))
+	if (strinx(chars, "tan"))
 		return TAN;
-	if (strindex(chars, "exp"))
+	if (strinx(chars, "exp"))
 		return EXP;		
-	if (strindex(chars, "sqrt"))
+	if (strinx(chars, "sqrt"))
 		return SQR;
-	if (strindex(chars, "pow"))
+	if (strinx(chars, "pow"))
 		return POW;
-	if (strindex(chars, "dup"))
+	if (strinx(chars, "dup"))
 		return DUP;
-	if (strindex(chars, "sw"))
+	if (strinx(chars, "sw"))
 		return SWP;
-	if (strindex(chars, "cl"))
+	if (strinx(chars, "cl"))
 		return CLR;
-	if (strindex(chars, "px"))
+	if (strinx(chars, "px"))
 		return PNT;
 	
 	return NONE;
 }
 
-int strindex(char s[], char t[]) {
+int strinx(char s[], char t[]) {
 	
 	int i, k;
 	
@@ -214,4 +213,3 @@ int strindex(char s[], char t[]) {
 
 	return 0;
 }
-
