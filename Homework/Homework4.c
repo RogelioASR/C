@@ -8,20 +8,20 @@
 enum opts { NUM = '0', MTH, SIN, COS, TAN, EXP, SQR, POW, DUP, NONE, SWP, CLR, PNT };
 
 void 	push(double); 				//saves number
-double 	pop(void); 					//takes out the number
+double 	pop(void); 				//takes out the number
 int 	getop(char []); 			//get characters, numbers or operands
 int 	getcharf(void); 			//takes the imput
 void 	ungetch(int); 				//gets last unsaved charracter
-int 	options(int, char[]); 		//check for functions or commands
-int 	strinx(char s[], char t[]); //functions
+int 	options(int, char[]); 			//check for functions or commands
+int 	strinx(char s[], char t[]); 		//functions
 
-double 	val[MAX]; 					//stack
-int 	sp = 0; 					//val counter
-char 	buf[MAX]; 					//last characters
-int 	bufp = 0; 					//buf counter
-char 	var;						//variable
+double 	val[MAX]; 				//stack
+int 	sp = 0; 				//val counter
+char 	buf[MAX]; 				//last characters
+int 	bufp = 0; 				//buf counter
+char 	var;					//variable
 double 	variables[1000]; 			//assign 1 digit variables
-int 	op1, op3;					//indicators to variables
+int 	op1, op3;				//indicators to variables
 
 /* reverse Polish calculator */
 main() {
