@@ -58,7 +58,7 @@ main() {
 			case PNT: op2 = pop(); printf("\t%g\n", op2); push(op2); break;
 			case SWP: op2 = pop(); op4 = pop(); push(op2); push(op4); break;
 			case '\n': printf("      =\t%.8g\n", pop()); op1 = 0; op3 = 0; var = 0; break;
-			default: if(chars[0] != '=' && strlen(chars) > 1)
+			default: if(chars[0] != '=' && strlen(chars) > 1 && chars[0] != ':')
 						printf("error: unknown command %s\n", chars); break;
 		}
 	}
