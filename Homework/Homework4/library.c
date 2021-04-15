@@ -11,23 +11,11 @@ int var, op1, op3;
 double variables[1000];
 
 void push(double f) {
-	int ops;
+
 	if (sp < MAXVAL)
 		val[sp++] = f;
 	else
 		printf("error: stack full, can't push %g\n", f);
-	
-	if(op1 && var != 0) {
-		if(variables[var] == 0 || op3 == 1) 
-			variables[var] = f;
-		else {
-			printf("[Warning] There is already a value in the variable: %c\n", var);
-			printf("Are you sure you want to change its value? 0.- NO 1.- YES\n");
-			scanf("%i", &ops);
-			if(ops)
-				 variables[var] = f;
-		}
-	}
 	
 		
 }
@@ -45,8 +33,8 @@ double pop(void) {
 } 
 
 int getop(char s[]) {
-
-	int i, c;
+	double top;
+	int i, c, ops, nu;
 
 	while ((s[0] = c = getch()) == ' ' || c == '\t');
 	s[1] = '\0';
@@ -64,11 +52,31 @@ int getop(char s[]) {
 		c = getch();
 		op1 = 1;
 	}
-
+		
+	if (c == '\n' && op1 && var != 0) {
+		if(variables[var] == 0 || op3 == 1)
+			variables[var] = pop();
+		else if (variables[var] != (top = pop())){
+			printf("[Warning] There is already a value in the variable: %c\n", var);
+			printf("Are you sure you want to change its value? 0.- NO 1.- YES\n");
+			scanf("%i", &ops);
+			if(ops)
+				variables[var] = top;
+			else
+				pop (), push(top);
+		}
+		push(variables[var]);
+		nu = 0;
+	}
+	
+	if (c == '\n' && op3 == 1) 
+		top = pop(), pop(), push(top); 
+	
 	if (c == '\n') {
 		op1 = 0;
-		op3 = 0;
+		op3 = 0;	
 	}
+	
 	
 	i = 0;	
 	if (c == '-')       
@@ -79,7 +87,7 @@ int getop(char s[]) {
 		
 	if (!isdigit(c) && c != '.')
 		return c; 
-
+	
 	if (isdigit(c)) 
 		while (isdigit(s[++i] = c = getch()));
 	if (c == '.') 
@@ -87,7 +95,9 @@ int getop(char s[]) {
 			s[i] = '\0';
 	if (c != EOF)
 		ungetch(c);
-		
+	
+
+	
 	return NUMBER;
 	
 }
@@ -128,10 +138,8 @@ int options(int c, char chars[]) {
 	if(i == 1 && variables[var] != 0 && var == chars[0])
 		push(variables[var]);
 	
-	if(chars[0] == 'a' && chars[1] == 'n' && chars[2] == 's') {
+	if(chars[0] == 'a' && chars[1] == 'n' && chars[2] == 's') 
 		push(variables['$']);
-		var = '$';
-	}
 	
 	return chars[0];
 }
