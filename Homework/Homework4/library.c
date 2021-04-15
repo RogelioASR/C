@@ -69,6 +69,13 @@ int getop(char s[]) {
 		op1 = 0;
 		op3 = 0;
 	}
+	
+	i = 0;	
+	if (c == '-')       
+		if (!isdigit(s[++i] = c = getch())) {
+			ungetch(c);               
+			c = s[0];
+		} 
 		
 	if (!isdigit(c) && c != '.')
 		return c; 
@@ -128,4 +135,3 @@ int options(int c, char chars[]) {
 	
 	return chars[0];
 }
-
