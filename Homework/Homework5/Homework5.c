@@ -1,10 +1,14 @@
+//Ingresar la cantidad de minas (tablero 10 x 10), luego ingresa la columna y fila de la casilla que se desea abrir
 #include <stdio.h>
 #include "minesweeper.h"
 
 int main() {
 	
 	int pos, lett, c; //numero de casilla y letra de arriba	
-	int flag = 1, i, a, b, k = 15;
+	int flag = 1, i, a, b, k;
+	
+	printf("(10-15 Recomended)\nNumber of mines: ");
+	scanf("%d", &k);
 	
 	bombs(k); //generates bombs and number of positions
 	forloop(i, CONTL*CONTL) //sets numbers to mine neighbours
