@@ -80,12 +80,12 @@ void kaboom() {
 			
 }
 
-void bombs() {
+void bombs(int k) {
 
 	int te, i, limit = CONTL*CONTL;
 	srand(time(NULL));
 
-	forloop(i, AMBOMBS) {
+	forloop(i, k) {
 		te = (rand() % (limit + 1));
 		if(nums[te/10][te%10] == BOMB) {
 			i--; continue; 
