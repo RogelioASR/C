@@ -3,7 +3,6 @@
 
 int main() {
 	
-	extern char hash[CONTL][CONTL];
 	int pos, lett, c; //numero de casilla y letra de arriba	
 	int flag = 1, i, a, b, k = 15;
 	
@@ -11,7 +10,7 @@ int main() {
 	forloop(i, CONTL*CONTL) //sets numbers to mine neighbours
 		neighbours(i); 
 	forloop(i, CONTL*CONTL) //creates array	
-		hash[i/10][i%10] = '#';
+		set((i/10), (i%10), '#');
 	/*RULES*/
 	printf("\tHow to play:\nEnter the number and row of the coloumn to open it\n");
 	printf("Example: \"c3\" or \"3c\"\nTo set a flag enter the location + \"m\"\n");
@@ -30,7 +29,7 @@ int main() {
 			printf("\n%2i   |", (pos/CONTL)+1);
 			do {
 				a = pos/10, b = pos%10;
-				hash[a][b] == '-' ? printf("  -1   |") : printf("   %c   |", hash[a][b]); //VALUE
+				field(a, b) == '-' ? printf("  -1   |") : printf("   %c   |", field(a, b)); //VALUE
 				pos++;
 			} while((pos%CONTL) != 0);
 			pos--;
