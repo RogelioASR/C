@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <ctype.h>
+#include <stdlib.h>
 #include "minesweeper.h"
 
 char hash[CONTL][CONTL]; //showed array
@@ -177,7 +178,7 @@ void empty(int a, int b) { //recursive function
 		empty(a, (b+1));
 	if(nums[a+1][b-1] == 0 && hash[a+1][b-1] == ' ' && !x[a+1][b-1])
 		empty((a+1), (b-1));
-	if(nums[a+1][b] == 0 && hash[a][b+1] == ' ' && !x[a][b+1])
+	if(nums[a+1][b] == 0 && hash[a+1][b] == ' ' && !x[a+1][b])
 		empty((a+1), b);
 	if(nums[a+1][b+1] && hash[a+1][b+1] == ' ' && !x[a+1][b+1])
 		empty((a+1), b);
