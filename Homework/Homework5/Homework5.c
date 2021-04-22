@@ -5,10 +5,7 @@
 int main() {
 	
 	int pos, lett, c; //numero de casilla y letra de arriba	
-	int flag = 1, i, a, b, k;
-	
-	printf("(10-15 Recomended)\nNumber of mines: ");
-	scanf("%d", &k);
+	int flag = 1, i, a, b, k = 15;
 	
 	bombs(k); //generates bombs and number of positions
 	forloop(i, CONTL*CONTL) //sets numbers to mine neighbours
