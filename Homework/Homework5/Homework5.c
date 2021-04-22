@@ -5,9 +5,9 @@ int main() {
 	
 	extern char hash[CONTL][CONTL];
 	int pos, lett, c; //numero de casilla y letra de arriba	
-	int flag = 1, i, a, b;
+	int flag = 1, i, a, b, k = 15;
 	
-	bombs(); //generates bombs and number of positions
+	bombs(k); //generates bombs and number of positions
 	forloop(i, CONTL*CONTL) //sets numbers to mine neighbours
 		neighbours(i); 
 	forloop(i, CONTL*CONTL) //creates array	
