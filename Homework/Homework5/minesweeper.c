@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include "minesweeper.h"
 
-char hash[CONTL][CONTL]; //showed array
-int nums[CONTL][CONTL]; //mines and numbers array
+static char hash[CONTL][CONTL]; //showed array
+static int nums[CONTL][CONTL]; //mines and numbers array
 
 int open() {
 
@@ -69,6 +69,14 @@ int open() {
 		empty(a, b);
 		
 	return OK;
+}
+
+char field(int a, int b) {
+	return hash[a][b];
+}
+
+void set (int a, int b, char hsh) {
+	hash[a][b] = hsh;
 }
 
 void kaboom() { 
