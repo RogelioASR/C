@@ -1,4 +1,4 @@
-//Ingresar la cantidad de minas (tablero 10 x 10), luego ingresa la columna y fila de la casilla que se desea abrir
+//ingresa la columna y fila de la casilla que se desea abrir, si deseas cambiar la cantidad de minas modifica el valor de k = '#'
 #include <stdio.h>
 #include "minesweeper.h"
 
