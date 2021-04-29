@@ -43,10 +43,10 @@ void show(node* position) {
 	
 	if (position != NULL) {
     	printf("%s,  ", position->name);
-    if(position->left == NULL)
-    	printf("%s,  ", position->name);
-    if(position->right == NULL)
-    	printf("%s,  ", position->name);
+    if(position->left != NULL)
+    	printf("%s,  ", position->left);
+    if(position->right != NULL)
+    	printf("%s,  ", position->right);
 	}
 	printf("\n");
 	return;
