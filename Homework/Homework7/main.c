@@ -1,6 +1,4 @@
-/*Para compilar agrega 2 archivos en el gcc compilador online con los siguientes nombres
-y copia cada código del repo al compilador online, no necesitas ningún archivo de texto ya que se crea automáticamente
-EL código del admi es 0 */
+//Para compilar agrega 2 archivos en el gcc compilador online
 
 #include "header.h"
 #include <stdio.h>
