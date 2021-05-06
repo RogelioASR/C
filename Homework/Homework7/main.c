@@ -1,23 +1,28 @@
-//Para compilar agrega 2 archivos en el gcc compilador online
+//No compila lo intente hacer pero no funciono y subi esto para no dejar NP
 
-#include "header.h"
+#include "data.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
-int main(){
-    FILE *flujo;
-    int temppin, temptime, flag = 1, pin, option, bucle = 1, user;
+int main() {
+    
+    
+    int pintemp, time1, 
+    int f = 1, pin, option, ciclo = 1, user;
+    
     time_t tiempo = time(0);
     struct tm *tlocal = localtime(&tiempo);
     char output[128], buffer[32];
+    FILE *nuevo;
     
-    printf("Hoy es %2d/%2d/%d", tlocal->tm_mday,tlocal->tm_mon+1,tlocal->tm_year+1900); //Mostrar Fecha
-    printf("\nSon las %d:%d:%2d",tlocal->tm_hour-5,tlocal->tm_min,tlocal->tm_sec); //Mostrar Hora
-    printf("\nBuenas, eres usuario o administrador?\n1 para usuario, 2 si eres admi\n"); //Bienvenida
+    printf("Hoy es %2d/%2d/%d", tlocal->tm_mday,tlocal->tm_mon+1,tlocal->tm_year+1900); 
+    printf("\nSon las %d:%d",tlocal->tm_hour-5,tlocal->tm_min); 
+    printf("\nTipo de usuario\n1 para usuario, 2 si eres admi\n"); 
     scanf("%d", &option);
-    if (option == 1){ //opciones de trabajador
+    
+    if (option == 1){ 
         option = 0;
         printf("Bienvenido, intruduce tu pin: \n");
         scanf("%d", &pin);
@@ -29,6 +34,7 @@ int main(){
         printf("Persona #%d  ** Bienvenido al registro ** \nQue deseas hacer?\n", pin);
         printf("-Presiona 1 para marcar entrada-\n-Presiona 2 para marcar salida-\n");
         scanf("%d", &option);
+        
         switch (option){
         case 1: //entrada
             flujo = fopen("log.txt", "a");
@@ -159,3 +165,4 @@ int crearRegistro(void){
         printf("\n");
     }
 }
+//Con ayuda de Abner y Toño
