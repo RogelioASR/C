@@ -3,6 +3,10 @@ y copia cada código del repo al compilador online, no necesitas ningún archivo
 EL código del admi es 0 */
 
 #include "header.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
 int main(){
     FILE *flujo;
