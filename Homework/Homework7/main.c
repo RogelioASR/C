@@ -118,7 +118,6 @@ int main(){
         exit(1);
     }
 }
-#include "header.h"
 
 int crearRegistro(void){
     int newpin = 1, pin, flag = 0;
