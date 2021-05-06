@@ -165,4 +165,30 @@ int crearRegistro(void){
         printf("\n");
     }
 }
+
+int checkPines(int pin){
+    int pines[9], j = 0;
+    int c;
+    FILE *fichero;
+    fichero = fopen("system.txt", "r");
+    if (fichero == NULL){
+        printf("Error: No se ha podido crear el fichero system.txt\n");
+    }
+    else{
+        while ((c = fgetc(fichero)) != EOF){
+            if (c == 'c'){
+                c = fgetc(fichero);
+                pines[j] = c - '0';
+                if (pin == pines[j]){
+                    fflush(fichero);
+                    fclose(fichero);
+                    return 1;
+                }
+                j = +1;
+            }
+        }
+    }
+    fflush(fichero);
+    fclose(fichero);
+}
 //Con ayuda de Abner y Toño
