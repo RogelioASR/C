@@ -55,27 +55,10 @@ To program this I plan to do:
    And the difficulties will work so that in Difficult it will just block you, in Normal it will have a 50% chance of blocking you and in Easy it will have a 25% chance of blocking you (all made with ramndom statments)
 
 First start
-#include <stdio.h>
-int main(){
-  int cycle=0; 
-  int option;
-  while (cycle==0){
-  printf ("--------------------------------------------------------------\n");
-  printf ("|     *             What do you want to do?         *         |\n\n"); 
-  printf ("| 1 Check balance                  2 Cash withdrawal          |\n");
-  printf ("| 3 Change of nip                  4 Cash deposite            |\n");
-  printf ("|                             5 exit                          |\n");
-  printf ("--------------------------------------------------------------\n");
-  scanf ("%d",&option);
 
-
-  }
-    return 0;  
- }
-
-
-    #include<stdio.h>
-    int get();
+```
+#include<stdio.h>
+int get();
     char game[7][6];
     main() {
       int a, b;
@@ -106,3 +89,4 @@ int main(){
     int get() {
 	return 0;
     }
+``` 
