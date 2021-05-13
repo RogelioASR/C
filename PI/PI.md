@@ -11,8 +11,8 @@ As soon as a column contains 6 pieces, it is full and no other piece can be plac
 Both players begin with 21 identical pieces, and the first player to achieve a line of four connected pieces wins the game. 
 If all 42 places are played and no player has places four pieces in a row, the game is drawn.
 
-Since I can not use colors in my program to play, I will let the users choose their symbol the want to use in the vistual board.
-Using the ASCII caracters I will made the board the following way:
+Since I cannot use colors in my program to play, I will let the users choose their symbol they want to use during the game.
+Using the ASCII caracters I will make the board the following way:
 
         |   |   |   |   |   |   |   |                                                                               
         |   |   |   |   |   |   |   |                                                                               
