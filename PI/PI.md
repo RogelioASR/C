@@ -54,3 +54,48 @@ To program this I plan to do:
 7. Another funtion that the sistem use to read the board and to block you if you are about to win.
    And the difficulties will work so that in Difficult it will just block you, in Normal it will have a 50% chance of blocking you and in Easy it will have a 25% chance of blocking you (all made with ramndom statments)
 
+First start
+
+#include<stdio.h>
+
+int get();
+
+char game[7][6];
+
+main() {
+	
+	int a, b;
+	char one, two;
+	
+//	printf("Player one, choose your symbol: ");
+//	scanf("%s", &one);
+//	printf("Player  two, choose your symbol: ");
+//	scanf("%s", &two);
+	
+	do {
+		printf("\n\n");
+		for(a = 0; a < 6; a++) {
+			printf("\t|");
+			for(b = 0; b < 7; b++) {
+				switch(game[a][b]) {
+					case 0: printf("   |"); break;
+					case 1: printf(" %c |", one); break;
+					case 2: printf(" %c |", two); break;
+				}
+			}
+			printf("\n");
+			if(a == 5)
+				printf("\t ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯\n");
+		}
+	} while(get());
+	
+}
+
+int get() {
+	
+	return 0;
+}
+
+void win() {
+	
+}
