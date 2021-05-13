@@ -57,6 +57,6 @@ To program this I plan to do:
 4. A funtion to request each player where they want to play and store it in the array
 5. A recursive function that reads the board every time to check if someone won
 6. A function to make random movements of the machine in single player mode
-7. Another funtion that the sistem use to read the board and to block you if you are about to win 
+7. Another funtion that the sistem use to read the board and to block you if you are about to win.
    And the difficulties will work so that in Difficult it will just block you, in Normal it will have a 50% chance of blocking you and in Easy it will have a 25% chance of blocking you (all made with ramndom statments)
 
