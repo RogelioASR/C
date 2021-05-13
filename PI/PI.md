@@ -55,7 +55,6 @@ To program this I plan to do:
    And the difficulties will work so that in Difficult it will just block you, in Normal it will have a 50% chance of blocking you and in Easy it will have a 25% chance of blocking you (all made with ramndom statments)
 
 First start
-
 #include <stdio.h>
 int main(){
   int cycle=0; 
@@ -73,6 +72,7 @@ int main(){
   }
     return 0;  
  }
+
 
     #include<stdio.h>
     int get();
