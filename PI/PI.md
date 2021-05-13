@@ -56,7 +56,7 @@ To program this I plan to do:
 
 First start
 
-```
+'''
 #include<stdio.h>
 
 int get();
@@ -100,4 +100,4 @@ int get() {
 void win() {
 	
 }
-``` 
+'''
