@@ -57,21 +57,15 @@ To program this I plan to do:
 First start
 
 #include<stdio.h>
-
 int get();
-
 char game[7][6];
-
 main() {
-	
 	int a, b;
 	char one, two;
-	
 //	printf("Player one, choose your symbol: ");
 //	scanf("%s", &one);
 //	printf("Player  two, choose your symbol: ");
-//	scanf("%s", &two);
-	
+//	scanf("%s", &two); 
 	do {
 		printf("\n\n");
 		for(a = 0; a < 6; a++) {
@@ -88,14 +82,9 @@ main() {
 				printf("\t ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯\n");
 		}
 	} while(get());
-	
 }
-
 int get() {
-	
 	return 0;
 }
-
 void win() {
-	
 }
