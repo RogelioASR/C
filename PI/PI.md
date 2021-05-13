@@ -56,6 +56,11 @@ To program this I plan to do:
 
 First start
 
+#include <stdio.h>
+int main(){
+	for(i = 0; i > 10; i++);
+}
+
     #include<stdio.h>
     int get();
     char game[7][6];
