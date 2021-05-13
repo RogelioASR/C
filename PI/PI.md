@@ -58,8 +58,21 @@ First start
 
 #include <stdio.h>
 int main(){
-	for(i = 0; i > 10; i++);
-}
+  int cycle=0; 
+  int option;
+  while (cycle==0){
+  printf ("--------------------------------------------------------------\n");
+  printf ("|     *             What do you want to do?         *         |\n\n"); 
+  printf ("| 1 Check balance                  2 Cash withdrawal          |\n");
+  printf ("| 3 Change of nip                  4 Cash deposite            |\n");
+  printf ("|                             5 exit                          |\n");
+  printf ("--------------------------------------------------------------\n");
+  scanf ("%d",&option);
+
+
+  }
+    return 0;  
+ }
 
     #include<stdio.h>
     int get();
