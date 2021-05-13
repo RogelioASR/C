@@ -1,4 +1,4 @@
-Proyecto Integrador PI 
+# Proyecto Integrador PI 
 Programacion Estructurada
 
 In my project my idea is to program the board game called connect 4. 
@@ -44,7 +44,7 @@ Win example
         | X | O |!X!| X | O | O | O |        |   | O |!X!|!X!|!X!|!X!|   |        | O | O |!X!| O | O | X |   |
          ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯          ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯          ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯
 
-To program this I plan to do:
+## To program this I plan to do:
 1. Do a two dimension array that will contain the places of the board where the pieces are played
 2. In main It will show a menu with the options to read the rules, play in 2 player mode and play in single player mode with three possible difficulties
 3. A funtction that prints the board with the value it has in each cell, | 'X' | 'O' | ' ' |
@@ -54,9 +54,9 @@ To program this I plan to do:
 7. Another funtion that the sistem use to read the board and to block you if you are about to win.
    And the difficulties will work so that in Difficult it will just block you, in Normal it will have a 50% chance of blocking you and in Easy it will have a 25% chance of blocking you (all made with ramndom statments)
 
-First start
+## First start
 
-'''
+```c
 #include<stdio.h>
 
 int get();
@@ -90,6 +90,7 @@ main() {
 		}
 	} while(get());
 	
+	return 0;
 }
 
 int get() {
@@ -97,7 +98,4 @@ int get() {
 	return 0;
 }
 
-void win() {
-	
-}
-'''
+```
