@@ -20,8 +20,6 @@ Using the ASCII caracters I will made the board the following way:
         |   |   |   |   |   |   |   |                                                                               
         |   |   |   |   |   |   |   |                                                                               
         |   |   |   |   |   |   |   |                                                                               
-        |   |   |   |   |   |   |   |                                                                               
-        |   |   |   |   |   |   |   |                                                                               
          ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ 
 
 Then by turns the program will ask for the number of the column that the player wants to play Then the board will start to fill.
