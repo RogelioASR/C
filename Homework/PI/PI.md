@@ -30,8 +30,6 @@ Example:
         |   |   |   |   |   |   |   |                                                                               
         |   |   |   |   |   |   |   |                                                                               
         |   |   |   |   |   |   |   |                                                                               
-        |   |   |   |   |   |   |   |                                                                               
-        |   |   |   |   |   |   |   |                                                                               
         |   |   |   |   | X |   |   |                                                                               
         |   |   | O | X | O |   |   |                                                                               
         | X | O | X | X | O |   | O |                                                                               
@@ -40,8 +38,6 @@ Example:
 Until a player achieve to connect 4 pieces i one row and win or until the board has no more available places and in that case that wil be tie.
 Win example
 
-        |   |   |   |   |   |   |   |        |   |   |   |   |   |   |   |        |   |   |   |   |   |   |   |
-        |   |   |   |   |   |   |   |        |   |   |   |   |   |   |   |        |   |   |   |   |   |   |   |
         |   |   |   |   |   |   |   |        |   |   |   |   |   |   |   |        |   |   |   |   |   |   |   |
         |   |   |   |   |   |   |   |        |   |   |   |   |   |   |   |        |   |   |   |   |   |   |   |
         |   |   |   |   |   |!X!|   |        |   |   |   |   |   |   |   |        |   |   |!X!|   |   |   |   |
