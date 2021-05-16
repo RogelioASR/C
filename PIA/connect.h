@@ -8,6 +8,8 @@ int horizontal(int, int, int);
 int diagonal(int, int, int);
 int diagonal2(int, int, int);
 int random2();
+int full();
+int ganar();
 
 int game[6][7];
 int winner, mode, dif;
