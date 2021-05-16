@@ -153,7 +153,7 @@ int diagonal2(int a, int b, int p) {
 	if(x == 4)
 		w = x = 0;
 		
-	if(a > 2 && !w)
+	if((a > 2 && !w) || (b > 3 && !w))
 		return 0;
 		
 	if(game[a][b] == 3)
@@ -186,11 +186,13 @@ int random2() {
 				if(game[a][b-1] == 1 && game[a][b-2] == 1 && game[a][b-3] == 0 && b > 2 && (game[a+1][b-3] != 0 || a == 5))
 					if(!(rand() % dif)) col = b-2;
 				if(game[a-1][b] == 1 && game[a-2][b] == 1 && game[a-3][b] == 0) 
-					if(!(rand() % dif)) col = b+1;
+					if(!(rand() % dif) && (a-3) > 0) col = b+1;
 				if(game[a-1][b+1] == 1 && game[a-2][b+2] == 1 && game[a-3][b+3] == 0 && game[a-2][b+3] != 0) 
-					if(!(rand() % dif)) col = b+4;
+					if(!(rand() % dif) && (a-3) > 0) col = b+4;
 				if(game[a-1][b-1] == 1 && game[a-2][b-2] == 1 && game[a-3][b-3] == 0 && game[a-2][b-3] != 0) 
-					if(!(rand() % dif)) col = b-2;
+					if(!(rand() % dif) && (a-3) > 0) col = b-2;
+			    if(ganar()) 
+			        col = ganar();
 			}
 		}	
 	}
@@ -202,6 +204,30 @@ int random2() {
 	} 
 		
 	printf("\nProgram: %d", col);	
+	
+	return col;
+}
+
+int ganar() {
+    
+    int a, b, col = 0;
+    srand(time(NULL));
+    for(a = 0; a < 6; a++) {
+		for(b = 0; b < 7; b++) {
+			if(game[a][b] == 2) {
+				if(game[a][b+1] == 2 && game[a][b+2] == 2 && game[a][b+3] == 0 && b < 4 && (game[a+1][b+3] != 0 || a == 5))
+					if(!(rand() % dif)) col = (b+4); 
+				if(game[a][b-1] == 2 && game[a][b-2] == 2 && game[a][b-3] == 0 && b > 2 && (game[a+1][b-3] != 0 || a == 5))
+					if(!(rand() % dif)) col = b-2; 
+				if(game[a-1][b] == 2 && game[a-2][b] == 2 && game[a-3][b] == 0) 
+					if(!(rand() % dif) && (a-3) > 0) col = b+1; 
+				if(game[a-1][b+1] == 2 && game[a-2][b+2] == 2 && game[a-3][b+3] == 0 && game[a-2][b+3] != 0) 
+					if(!(rand() % dif) && (a-3) > 0) col = b+4;
+				if(game[a-1][b-1] == 2 && game[a-2][b-2] == 2 && game[a-3][b-3] == 0 && game[a-2][b-3] != 0) 
+					if(!(rand() % dif) && (a-3) > 0) col = b-2; 
+			}
+		}	
+	}
 	
 	return col;
 }
