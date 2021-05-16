@@ -80,7 +80,11 @@ int main() {
 		}
 		if(win())
 			break;
-  
+        
+        if(!full()) {
+            printf("\nThe board is full, it's a tie\n");
+            return 0;
+        }
 	} while(get(mode));
 	
 	printf("\n\n\n");
@@ -104,11 +108,26 @@ int main() {
 	if(winner == 1 && mode == 1)
 		printf("\nCongratulations %s, You Won!\n", nom);
 	else if (mode == 1)
-		printf("\nCongratulations, You Lost!\n");
+		printf("\nCongratulations %s, You Lost!\n", nom);
 		
 	if(winner == 1 && mode == 2)
-		printf("\nCongratulations, %s has won!\n", nom);
+		printf("\nCongratulations %s,  You won!\n", nom);
 	else if (mode == 2)
-		printf("\nCongratulations, %s has won!\n", nom2);
+		printf("\nCongratulations %s, You won!\n", nom2);
 	return 0;
+}
+
+int full() {
+    
+    int a, b, count = 0;
+    
+    for(a = 0; a < 6; a++) {
+		for(b = 0; b < 7; b++) {
+		    if(game[a][b] == 0)
+		        count++;
+		}
+    }
+    
+    return count;
+		    
 }
