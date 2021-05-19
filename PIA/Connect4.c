@@ -1,6 +1,6 @@
 /* How to compile:
 Go to onlineGDB or other compiler and add the 3 files:
-connec4.c
+connect4.c
 connect.h
 four.c */
 
