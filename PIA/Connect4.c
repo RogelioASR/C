@@ -97,8 +97,8 @@ int main() {
 	FILE*record = fopen("file.txt", "a+"); //Saves a record in a file 
     fprintf(record,"----------------------------------------");
     fprintf(record,"\nLAST GAME PLAYED");
-    fprintf(record,"\n\t\t %02d/%02d/%d", timp->tm_mday-1, timp->tm_mon+1, timp->tm_year+1900);
-    fprintf(record,"\n\t\t    %d:%02d", timp->tm_hour+7, timp->tm_min+1); 
+    fprintf(record,"\n\t\t %02d/%02d/%d", timp->tm_mday, timp->tm_mon+1, timp->tm_year+1900);
+    fprintf(record,"\n\t\t    %d:%02d", timp->tm_hour, timp->tm_min+1); 
     fprintf(record,"\n\t%s", (mode == 1) ? "Single player game" : "Two player game");
     if(mode == 2) {
         fprintf(record, "\t%s vs %s", pone.name, ptwo.name);
