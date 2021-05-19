@@ -2,7 +2,8 @@
 Go to onlineGDB or other compiler and add the 3 files:
 connect4.c
 connect.h
-four.c */
+four.c 
+By: Rogelio Salinas Rosette */
 
 #include<stdio.h>
 #include<time.h>
