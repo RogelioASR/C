@@ -1,39 +1,74 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#include<ctype.h>
 #include"connect.h"
 
-int get(int mode) {
-	
+int game[6][7]; //values of positions in the board
+
+void board() { //print board
+    int a, b;
+    
+    printf("\n\n\n");
+	for(a = 0; a < 6; a++) {
+		printf("\t|");
+		for(b = 0; b < 7; b++) {
+			switch(game[a][b]) {
+				case 0: printf("   |"); break;
+				case 1: printf(" %c |", pone.sym); break;
+				case 2: printf(" %c |", ptwo.sym); break;
+				case 3: printf("!%c!|", '*'); break;
+			}
+		}
+		printf("\n");
+		if(a == 5) {
+			printf("\t ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯ ¯¯¯\n");
+			printf("\t  1   2   3   4   5   6   7 \n");
+		}	
+	}
+}
+
+int full() { //check if it is full
+    int a, b, count = 0;
+    
+    for(a = 0; a < 6; a++) {
+		for(b = 0; b < 7; b++) {
+		    if(game[a][b] == 0)
+		        count++;
+		}
+    }
+    return count;
+}
+
+int get(int mode) {//asks for column
 	int col;
 	static int turns;
 	
 	do {
 		if(!turns) {
-			printf("\n%s, select the column you want to play: ", nom);
+			printf("\n%s, select the column you want to play: ", pone.name);
 			scanf("%i", &col);
 			if(col < 8 && col > 0)
 				turns = 1;		
 		} else if(mode == 1) {
-			col = random2();
+			col = program_block();
 			turns = 0;
 		} else {
-			printf("\n%s, select the column you want to play: ", nom2);
+			printf("\n%s, select the column you want to play: ", ptwo.name);
 			scanf("%i", &col);
 			if(col < 8 && col > 0)
 				turns = 0;
 		}
-		if(col > 7 || col < 1)
-			printf("\nInvalid option, Try again");	
+		if(col > 7 || col < 1) 
+		    printf("\nInvalid option, Try again");
 	} while(col > 7 || col < 1);
 	col -= 1;
 	
 	insert(5, col, turns);
-	
 	return 1;
 }
 
-void insert(int row, int col, int player) {
+void insert(int row, int col, int player) {//insert in given column
 
 	if(game[row][col] == 0 && row >= 0) {
 		if(player == 1)
@@ -51,13 +86,12 @@ void insert(int row, int col, int player) {
 	return;
 }
 
-int win() {
-	
+int win() {//check the board in case of a win
 	int a, b, win = 0;
 	
 	for(a = 0; a < 6; a++) {
 		for(b = 0; b < 8; b++) {
-			if(game[a][b] != 0) {
+			if(game[a][b] != 0) { //different chances of winning
 				win += horizontal(a, b, game[a][b]);
 				win += vertical(a, b, game[a][b]);
 				win += diagonal(a, b, game[a][b]);
@@ -72,7 +106,6 @@ int win() {
 }
 
 int horizontal(int a, int b, int p) {
-	
 	static int w, x;
 	
 	if(x == 4)
@@ -87,8 +120,9 @@ int horizontal(int a, int b, int p) {
 	}
 	
 	if(w == 3) {
-		winner = p, x++;
-		game[a][b] = 3;
+	   if(p == 1) pone.winn = 1;
+	   else ptwo.winn = 1;
+		game[a][b] = 3, x++;
 		return 1;
 	} else {
 		w = 0;
@@ -98,7 +132,6 @@ int horizontal(int a, int b, int p) {
 }
 
 int vertical(int a, int b, int p) {
-	
 	static int w, x;
 	
 	if(a > 2 && !w)
@@ -112,8 +145,9 @@ int vertical(int a, int b, int p) {
 		vertical(a+1, b, p);	
 	}
 	if(w == 3) {
-		winner = p, x++;
-		game[a][b] = 3;
+	    if(p == 1) pone.winn = 1;
+	    else ptwo.winn = 1;
+		game[a][b] = 3, x++;
 		return 1;
 	} else {
 		w = 0;
@@ -122,7 +156,6 @@ int vertical(int a, int b, int p) {
 }
 
 int diagonal(int a, int b, int p) {
-	
 	static int w, x;
 	
 	if(x == 4)
@@ -137,8 +170,9 @@ int diagonal(int a, int b, int p) {
 	}
 	
 	if(w == 3) {
-		winner = p, x++;
-		game[a][b] = 3;
+		if(p == 1) pone.winn = 1;
+	    else ptwo.winn = 1;
+		game[a][b] = 3, x++;
 		return 1;
 	} else {
 		w = 0;
@@ -147,7 +181,6 @@ int diagonal(int a, int b, int p) {
 }
 
 int diagonal2(int a, int b, int p) {
-	
 	static int w, x;
 	
 	if(x == 4)
@@ -165,8 +198,9 @@ int diagonal2(int a, int b, int p) {
 	}
 	
 	if(w == 3) {
-		winner = p, x++;
-		game[a][b] = 3;
+		if(p == 1) pone.winn = 1;
+	    else ptwo.winn = 1;
+		game[a][b] = 3, x++;
 		return 1;
 	} else {
 		w = 0;
@@ -174,7 +208,7 @@ int diagonal2(int a, int b, int p) {
 	}
 }
 
-int random2() {
+int program_block() { //program blocks you if you are about to win 
 	
 	int a, b, temp, col;
 	srand(time(NULL));
@@ -191,15 +225,15 @@ int random2() {
 					if(!(rand() % dif) && (a-3) > 0) col = b+4;
 				if(game[a-1][b-1] == 1 && game[a-2][b-2] == 1 && game[a-3][b-3] == 0 && game[a-2][b-3] != 0) 
 					if(!(rand() % dif) && (a-3) > 0) col = b-2;
-			    if(ganar()) 
-			        col = ganar();
+			    if(program_win()) 
+			        col = program_win();
 			}
 		}	
 	}
 	
 	while(col == 0 || col > 7) {
 		col = (rand() % 8);
-		if(game[0][col] != 0)
+		if(game[0][col-1] != 0 && col > 0)
 			col = 0;
 	} 
 		
@@ -208,7 +242,7 @@ int random2() {
 	return col;
 }
 
-int ganar() {
+int program_win() { //program puts the final piece to win
     
     int a, b, col = 0;
     srand(time(NULL));
