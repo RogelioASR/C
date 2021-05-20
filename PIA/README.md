@@ -41,6 +41,9 @@ Then after playing the program saves a record in a file of each time you play, s
 
 ## Link to the video of the program: 
 https://www.youtube.com/watch?v=28nnOfaZXaI 
+## Link to use the program: 
+Feel free to play and enjoy: 
+https://www.onlinegdb.com/yuLJXjqps 
 
 ## References: 
 - Weisstein, Eric W. "Connect-Four." From MathWorld--A Wolfram Web Resource. https://mathworld.wolfram.com/Connect-Four.html
